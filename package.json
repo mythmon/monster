@@ -1,0 +1,8 @@
+{
+    "name": "Monster",
+    "description": "An AI for cookieclicker in Firefox",
+    "dependencies": {
+      "firefox-client": "0.0.3",
+      "node-promise": "0.5.8"
+    }
+}
