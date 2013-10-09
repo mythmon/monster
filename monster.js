@@ -213,7 +213,7 @@ CookieClickerAI.prototype.buySomething = function() {
   var p = new Promise();
 
   function inBrowser() {
-    var product = $('#upgrades .upgrade.enabled, .product.enabled');
+    var product = $('#upgrades .upgrade.enabled:not([onclick*="89"]), .product.enabled');
     if (product) {
       product.click();
       var name = product.querySelector('.title');
