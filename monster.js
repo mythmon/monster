@@ -76,6 +76,8 @@ CookieClickerAI.prototype.getCCTab = function(tabList) {
 CookieClickerAI.prototype.setupBrowser = function() {
   function inBrowser() {
     window.monster = window.monster || {};
+    window.alert = function() { return true; };
+    window.confirm = function() { return true; };
   }
 
   return this.cc.Console.evaluateJS(iife(inBrowser));
@@ -213,7 +215,11 @@ CookieClickerAI.prototype.buySomething = function() {
   var p = new Promise();
 
   function inBrowser() {
-    var product = $('#upgrades .upgrade.enabled:not([onclick*="89"]), .product.enabled');
+    var product = $$('#upgrades .upgrade.enabled:not([onclick*="84"])') 
+    if (!product.length) {
+        product = $$('.product.enabled');
+    }
+    product = product[product.length - 1];
     if (product) {
       product.click();
       var name = product.querySelector('.title');
